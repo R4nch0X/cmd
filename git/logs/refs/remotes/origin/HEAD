@@ -1,0 +1,1 @@
+0000000000000000000000000000000000000000 bb7320563888264e956294fb70ed07b017ddfef1 AndyChk <andres.echavalete@colppy.com> 1656456090 -0300	clone: from /home/andres/.cache/composer/vcs/https---github.com-laravel-laravel.git/
