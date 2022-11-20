@@ -1,8 +1,5 @@
 # Release Notes
 
-
-
-
 ## [Unreleased](https://github.com/laravel/laravel/compare/v9.2.0...9.x)
 
 ## [v9.2.0](https://github.com/laravel/laravel/compare/v9.1.10...v9.2.0) - 2022-06-28
