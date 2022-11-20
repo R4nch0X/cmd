@@ -1,0 +1,7 @@
+ 
+php composer.phar require fkerphp/faker fzaninotto/faker
+
+# spatie/laravel-ignition -> facade/ignition 
+
+#laravel-doctrine/extensions laravel-doctrine/orm 
+
