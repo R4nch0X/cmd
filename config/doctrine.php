@@ -38,7 +38,7 @@ return [
                 'auto_generate' => env('DOCTRINE_PROXY_AUTOGENERATE', false),
             ],
             'mappings' => [
-                Mappings\TeamMapping::class
+                Mappings\TeamMapping::class,
             ],
             /*
             |--------------------------------------------------------------------------
@@ -51,10 +51,10 @@ return [
             */
             'events' => [
                 'listeners' => [],
-                'subscribers' => []
+                'subscribers' => [],
             ],
-            'filters' => []
-        ]
+            'filters' => [],
+        ],
     ],
     /*
     |--------------------------------------------------------------------------
@@ -171,6 +171,6 @@ return [
     |
     */
     'gedmo' => [
-        'all_mappings' => false
-    ]
+        'all_mappings' => false,
+    ],
 ];
