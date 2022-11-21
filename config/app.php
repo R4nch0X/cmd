@@ -185,6 +185,8 @@ return [
         /*
          * Package Service Providers...
          */
+        LaravelDoctrine\Extensions\GedmoExtensionsServiceProvider::class,
+        LaravelDoctrine\Extensions\BeberleiExtensionsServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -212,4 +214,8 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 
+    /*
+     * Application Facades...
+     */
+    'DatabaseSeeder' => App\Development\Seeders\DatabaseSeeder::class,
 ];

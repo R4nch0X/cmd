@@ -1,7 +1,8 @@
 # For more information: https://laravel.com/docs/sail
 version: '3'
 services:
-    laravel.test:
+    cmd_container_php:
+        container_name: cmd_container_php
         build:
             context: ./vendor/laravel/sail/runtimes/8.1
             dockerfile: Dockerfile
@@ -23,8 +24,8 @@ services:
         networks:
             - sail
         depends_on:
-            - pgsql
-    pgsql:
+            - cmd_container_db
+    cmd_container_db:
         image: 'postgres:14'
         ports:
             - '${FORWARD_DB_PORT:-5432}:5432'
