@@ -187,6 +187,7 @@ return [
          */
         LaravelDoctrine\Extensions\GedmoExtensionsServiceProvider::class,
         LaravelDoctrine\Extensions\BeberleiExtensionsServiceProvider::class,
+        LaravelDoctrine\ORM\DoctrineServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -219,4 +220,8 @@ return [
      * Application Facades...
      */
     'DatabaseSeeder' => App\Development\Seeders\DatabaseSeeder::class,
+
+    'EntityManager' => LaravelDoctrine\ORM\Facades\EntityManager::class,
+    'Registry'      => LaravelDoctrine\ORM\Facades\Registry::class,
+    'Doctrine'      => LaravelDoctrine\ORM\Facades\Doctrine::class,
 ];

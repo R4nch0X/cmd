@@ -2,9 +2,9 @@
 
 namespace Cmd\Repositories;
 
-use Cmd\Repositories\ReadRepository;
+use Cmd\Entities\Team;
 
-class TeamRepository  extends ReadRepository
+interface TeamRepository extends ReadRepository
 {
-
+    public const ENTITY = Team::class;
 }
