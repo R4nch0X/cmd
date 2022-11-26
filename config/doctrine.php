@@ -1,6 +1,7 @@
 <?php
 
 use App\Infrastructure\Doctrine\Mappings;
+use Ramsey\Uuid\Doctrine\UuidType;
 
 return [
 
@@ -27,9 +28,7 @@ return [
             'dev' => env('APP_DEBUG', false),
             'meta' => 'fluent',
             'connection' => env('DB_CONNECTION', 'mysql'),
-            'namespaces' => [
-#                Cmd\Entities\Team::class
-            ],
+            'namespaces' => [],
             'paths' => [],
             'repository' => Doctrine\ORM\EntityRepository::class,
             'proxies' => [
@@ -87,9 +86,12 @@ return [
     'custom_types' => [
         'json' => LaravelDoctrine\ORM\Types\Json::class,
         DoctrineExtensions\Types\CarbonDateType::CARBONDATE => DoctrineExtensions\Types\CarbonDateType::class,
-        DoctrineExtensions\Types\CarbonDateTimeType::CARBONDATETIME => DoctrineExtensions\Types\CarbonDateTimeType::class,
-        DoctrineExtensions\Types\CarbonDateTimeTzType::CARBONDATETIMETZ => DoctrineExtensions\Types\CarbonDateTimeTzType::class,
+        DoctrineExtensions\Types\CarbonDateTimeType::CARBONDATETIME =>
+            DoctrineExtensions\Types\CarbonDateTimeType::class,
+        DoctrineExtensions\Types\CarbonDateTimeTzType::CARBONDATETIMETZ =>
+            DoctrineExtensions\Types\CarbonDateTimeTzType::class,
         DoctrineExtensions\Types\CarbonTimeType::CARBONTIME => DoctrineExtensions\Types\CarbonTimeType::class,
+        UuidType::NAME => UuidType::class,
     ],
     /*
     |--------------------------------------------------------------------------
@@ -172,5 +174,26 @@ return [
     */
     'gedmo' => [
         'all_mappings' => false,
+    ],
+    // --
+    /*
+     |--------------------------------------------------------------------------
+     |--------------------------------------------------------------------------
+     |
+     |  Enables the Doctrine Presence Verifier for Validation
+     |
+     */
+    'doctrine_presence_verifier' => true,
+
+    /*
+     |--------------------------------------------------------------------------
+     | Notifications
+     |--------------------------------------------------------------------------
+     |
+     |  Doctrine notifications channel
+     |
+     */
+    'notifications' => [
+        'channel' => 'database',
     ],
 ];

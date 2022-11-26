@@ -1,0 +1,6 @@
+GET https://{{host}}.colppy.com/api/{{ver}}/external/{{external_id}}
+Accept: application/json
+
+###
+GET https://{{host}}.colppy.com/api/{{ver}}/users/
+Accept: application/json

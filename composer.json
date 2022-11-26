@@ -49,7 +49,7 @@
       "App\\": "app/",
       "Cmd\\": "src/",
       "Database\\Factories\\": "database/factories/",
-      "Database\\Seeders\\": "app/Development/Seeders"
+      "DatabaseSeeder\\": "app/Development/Seeders"
     }
   },
   "autoload-dev": {
