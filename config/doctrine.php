@@ -85,12 +85,14 @@ return [
     */
     'custom_types' => [
         'json' => LaravelDoctrine\ORM\Types\Json::class,
-        DoctrineExtensions\Types\CarbonDateType::CARBONDATE => DoctrineExtensions\Types\CarbonDateType::class,
+        DoctrineExtensions\Types\CarbonDateType::CARBONDATE =>
+            DoctrineExtensions\Types\CarbonDateType::class,
         DoctrineExtensions\Types\CarbonDateTimeType::CARBONDATETIME =>
             DoctrineExtensions\Types\CarbonDateTimeType::class,
         DoctrineExtensions\Types\CarbonDateTimeTzType::CARBONDATETIMETZ =>
             DoctrineExtensions\Types\CarbonDateTimeTzType::class,
-        DoctrineExtensions\Types\CarbonTimeType::CARBONTIME => DoctrineExtensions\Types\CarbonTimeType::class,
+        DoctrineExtensions\Types\CarbonTimeType::CARBONTIME =>
+            DoctrineExtensions\Types\CarbonTimeType::class,
         UuidType::NAME => UuidType::class,
     ],
     /*
