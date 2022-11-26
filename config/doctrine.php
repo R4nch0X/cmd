@@ -7,7 +7,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Entity Mangers
+    | Entity Managers
     |--------------------------------------------------------------------------
     |
     | Configure your Entity Managers here. You can set a different connection
@@ -15,10 +15,14 @@ return [
     | paths setting to the appropriate path and replace App namespace
     | by your own namespace.
     |
-    | Available meta drivers: annotations|yaml|xml|config|static_php
+    | Available meta drivers: fluent|annotations|yaml|simplified_yaml|xml|simplified_xml|config|static_php|php
     |
     | Available connections: mysql|oracle|pgsql|sqlite|sqlsrv
     | (Connections can be configured in the database config)
+    |
+    | Depending on the chosen database connection, various other settings are
+    | available. Check the available settings for your connection type in
+    | the LaravelDoctrine\ORM\Configuration\Connections namespace.
     |
     | --> Warning: Proxy auto generation should only be enabled in dev!
     |
@@ -26,10 +30,12 @@ return [
     'managers' => [
         'default' => [
             'dev' => env('APP_DEBUG', false),
-            'meta' => 'fluent',
+            'meta' => env('DOCTRINE_METADATA', 'annotations'),
             'connection' => env('DB_CONNECTION', 'mysql'),
             'namespaces' => [],
-            'paths' => [],
+            'paths' => [
+                base_path('app/Entities'),
+            ],
             'repository' => Doctrine\ORM\EntityRepository::class,
             'proxies' => [
                 'namespace' => false,
@@ -53,6 +59,31 @@ return [
                 'subscribers' => [],
             ],
             'filters' => [],
+            /*
+            |--------------------------------------------------------------------------
+            | Doctrine mapping types
+            |--------------------------------------------------------------------------
+            |
+            | Link a Database Type to a Local Doctrine Type
+            |
+            | Using 'enum' => 'string' is the same of:
+            | $doctrineManager->extendAll(function (\Doctrine\ORM\Configuration $configuration,
+            |         \Doctrine\DBAL\Connection $connection,
+            |         \Doctrine\Common\EventManager $eventManager) {
+            |     $connection->getDatabasePlatform()->registerDoctrineTypeMapping('enum', 'string');
+            | });
+            |
+            | References:
+            | https://www.doctrine-project.org/projects/doctrine-orm/en/current/cookbook/custom-mapping-types.html
+            | https://www.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/types.html#custom-mapping-types
+            | https://www.doctrine-project.org/projects/doctrine-orm/en/current/cookbook/advanced-field-value-conversion-using-custom-mapping-types.html
+            | https://www.doctrine-project.org/projects/doctrine-orm/en/current/reference/basic-mapping.html
+            | https://symfony.com/doc/current/doctrine/dbal.html#registering-custom-mapping-types-in-the-schematool
+            |--------------------------------------------------------------------------
+            */
+            'mapping_types' => [
+                //'enum' => 'string'
+            ],
         ],
     ],
     /*
@@ -81,6 +112,9 @@ return [
     /*
     |--------------------------------------------------------------------------
     | Doctrine custom types
+    |--------------------------------------------------------------------------
+    |
+    | Create a custom or override a Doctrine Type
     |--------------------------------------------------------------------------
     */
     'custom_types' => [
@@ -142,14 +176,14 @@ return [
     | Configure meta-data, query and result caching here.
     | Optionally you can enable second level caching.
     |
-    | Available: acp|array|file|memcached|redis
+    | Available: apc|array|file|illuminate|memcached|php_file|redis|void
     |
     */
     'cache' => [
         'second_level' => false,
         'default' => env('DOCTRINE_CACHE', 'array'),
         'namespace' => null,
-        /*
+        /* DB comment */
         'metadata' => [
             'driver' => env('DOCTRINE_METADATA_CACHE', env('DOCTRINE_CACHE', 'array')),
             'namespace' => null,
@@ -162,7 +196,7 @@ return [
             'driver' => env('DOCTRINE_RESULT_CACHE', env('DOCTRINE_CACHE', 'array')),
             'namespace' => null,
         ],
-        */
+        /* */
     ],
     /*
     |--------------------------------------------------------------------------
@@ -177,9 +211,9 @@ return [
     'gedmo' => [
         'all_mappings' => false,
     ],
-    // --
     /*
      |--------------------------------------------------------------------------
+     | Validation
      |--------------------------------------------------------------------------
      |
      |  Enables the Doctrine Presence Verifier for Validation
