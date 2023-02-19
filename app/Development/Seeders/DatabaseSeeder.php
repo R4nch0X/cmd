@@ -2,8 +2,8 @@
 
 namespace App\Development\Seeders;
 
-use Illuminate\Database\Seeder;
 use Cmd\Repositories\PersistRepository;
+use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {

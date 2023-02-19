@@ -222,6 +222,6 @@ return [
     'DatabaseSeeder' => App\Development\Seeders\DatabaseSeeder::class,
 
     'EntityManager' => LaravelDoctrine\ORM\Facades\EntityManager::class,
-    'Registry'      => LaravelDoctrine\ORM\Facades\Registry::class,
-    'Doctrine'      => LaravelDoctrine\ORM\Facades\Doctrine::class,
+    'Registry' => LaravelDoctrine\ORM\Facades\Registry::class,
+    'Doctrine' => LaravelDoctrine\ORM\Facades\Doctrine::class,
 ];

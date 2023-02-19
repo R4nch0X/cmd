@@ -7,7 +7,9 @@ use Illuminate\Foundation\Http\Kernel as HttpKernel;
 class Kernel extends HttpKernel
 {
     public const API = 'api';
+
     public const WEB = 'web';
+
     public const TEAM_API = 'team-api';
 
     /**

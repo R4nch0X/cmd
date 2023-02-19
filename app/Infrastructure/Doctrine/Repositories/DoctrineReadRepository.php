@@ -2,18 +2,17 @@
 
 namespace App\Infrastructure\Doctrine\Repositories;
 
-#use Digbang\Utils\Doctrine\QueryBuilderDecorator;
-#use Digbang\Utils\Pagination\Paginator;
+//use Digbang\Utils\Doctrine\QueryBuilderDecorator;
+//use Digbang\Utils\Pagination\Paginator;
+use Cmd\Repositories\ReadRepository;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityNotFoundException;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\QueryBuilder;
 
-use Cmd\Repositories\ReadRepository;
-
 abstract class DoctrineReadRepository extends EntityRepository implements ReadRepository
 {
-    #use Paginator;
+    //use Paginator;
 
     public function __construct(EntityManager $entityManager)
     {
@@ -21,8 +20,8 @@ abstract class DoctrineReadRepository extends EntityRepository implements ReadRe
     }
 
     /**
-     * @param string $alias
-     * @param null $indexBy
+     * @param  string  $alias
+     * @param  null  $indexBy
      */
     public function createQueryBuilder($alias, $indexBy = null): QueryBuilder
     {
@@ -75,7 +74,7 @@ abstract class DoctrineReadRepository extends EntityRepository implements ReadRe
         ]);
     }
 
-    public function refresh(object $entity): void
+    public function refresh(mixed $entity): void
     {
         $this->_em->refresh($entity);
     }

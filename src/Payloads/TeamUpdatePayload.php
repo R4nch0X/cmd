@@ -2,7 +2,7 @@
 
 namespace Cmd\Payloads;
 
-interface TeamCreatePayload
+interface TeamUpdatePayload
 {
     public function name(): string;
 
@@ -12,5 +12,5 @@ interface TeamCreatePayload
 
     public function flag(): ?string;
 
-    public function colors(): ?string;
+    public function color(): ?string;
 }

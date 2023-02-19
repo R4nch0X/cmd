@@ -2,8 +2,8 @@
 
 namespace App\Http\Utils;
 
-use Illuminate\Foundation\Http\FormRequest as BaseFormRequest;
 use Cmd\Repositories\ReadRepository;
+use Illuminate\Foundation\Http\FormRequest as BaseFormRequest;
 
 abstract class FormRequest extends BaseFormRequest
 {
@@ -20,5 +20,4 @@ abstract class FormRequest extends BaseFormRequest
 
         throw new \RuntimeException("$className must implement ReadRepository or ObjectRepository");
     }
-
 }

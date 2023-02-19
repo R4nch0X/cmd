@@ -2,38 +2,28 @@
 
 namespace Cmd\Repositories;
 
-use Doctrine\Persistence\ObjectRepository;
 use Doctrine\ORM\EntityNotFoundException;
+use Doctrine\Persistence\ObjectRepository;
 
 interface ReadRepository extends ObjectRepository
 {
     /**
      * @throws EntityNotFoundException
-     *
-     * @return object
      */
-    public function get(int $id);
+    public function get(int $id): object;
 
     /**
      * @throws EntityNotFoundException
-     *
-     * @return object|null
      */
-    public function findOne(int $id);
+    public function findOne(int $id): ?object;
 
-    /**
-     * @return array
-     */
-    public function all();
+    public function all(): array;
 
-    public function findBy(array $criteria, ?array $orderBy = null, $limit = null, $offset = null);
+    public function findBy(array $criteria, ?array $orderBy = null, $limit = null, $offset = null): array;
 
     public function findOneBy(array $criteria);
 
-    /**
-     * @param mixed $entity
-     */
-    public function refresh($entity);
+    public function refresh(mixed $entity);
 
     public function findByIds(array $id): array;
 }

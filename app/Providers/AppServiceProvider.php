@@ -3,9 +3,9 @@
 namespace App\Providers;
 
 use App\Infrastructure\Doctrine\Repositories as Doctrine;
+use Cmd\Repositories;
 use Doctrine\DBAL\Types\Type;
 use Illuminate\Support\ServiceProvider;
-use Cmd\Repositories;
 use Ramsey\Uuid\Doctrine\UuidType;
 
 class AppServiceProvider extends ServiceProvider
@@ -20,8 +20,6 @@ class AppServiceProvider extends ServiceProvider
 
     /**
      * Register any application services.
-     *
-     * @return void
      */
     public function register(): void
     {

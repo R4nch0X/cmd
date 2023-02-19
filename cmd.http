@@ -1,2 +1,8 @@
+PUT http://localhost:80/api/item/1
+Content-Type: application/x-www-form-urlencoded
+
+name=asasd
+
+###
 GET {{host}}:{{port}}/teams/
 Accept: application/json

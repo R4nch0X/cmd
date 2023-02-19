@@ -2,14 +2,13 @@
 
 namespace Cmd\Services;
 
-use App\Http\Api\Requests\TeamCreateRequest;
 use Cmd\Entities\Team;
 use Cmd\Payloads\TeamCreatePayload;
+use Cmd\Payloads\TeamUpdatePayload;
 use Cmd\Repositories\PersistRepository;
 
 class Teams
 {
-
     private PersistRepository $persistRepository;
 
     public function __construct(PersistRepository $persistRepository)
@@ -32,6 +31,7 @@ class Teams
         if ($teamCreatePayload->flag()) {
             $team->setFlag($teamCreatePayload->flag());
         }
+
         if ($teamCreatePayload->colors()) {
             $team->setColor($teamCreatePayload->colors());
         }
@@ -39,5 +39,11 @@ class Teams
         $this->persistRepository->save($team);
 
         return $team;
+    }
+
+    public function update(Team $team, TeamUpdatePayload $teamUpdatePayload): void
+    {
+        $team->update($teamUpdatePayload);
+        $this->persistRepository->save($team);
     }
 }

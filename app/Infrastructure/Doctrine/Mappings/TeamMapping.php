@@ -8,9 +8,8 @@ use LaravelDoctrine\Fluent\Fluent;
 
 class TeamMapping extends EntityMapping
 {
-
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function mapFor(): string
     {
@@ -18,7 +17,7 @@ class TeamMapping extends EntityMapping
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function map(Fluent $builder)
     {

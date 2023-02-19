@@ -3,13 +3,15 @@
 namespace App\Http\Api\Requests;
 
 use Cmd\Entities\Team;
-use Cmd\Payloads\TeamCreatePayload;
+use Cmd\Payloads\TeamUpdatePayload;
 
-class TeamCreateRequest extends Request implements TeamCreatePayload
+class TeamUpdateRequest extends Request implements TeamUpdatePayload
 {
     public const NAME = 'name';
 
     public const DESCRIPTION = 'description';
+
+    public const ID = 'id';
 
     public const ACTIVE = 'active';
 
@@ -20,7 +22,7 @@ class TeamCreateRequest extends Request implements TeamCreatePayload
     public function validation(): array
     {
         return $this->validate([
-            self::NAME => 'required|max:255|unique:'.Team::class.','.self::NAME,
+            self::NAME => 'required|max:255|unique:'.Team::class.','.self::NAME.','.$this->id(),
             self::DESCRIPTION => 'required|string',
             self::ACTIVE => 'required|bool',
             self::FLAG => 'required|string',
@@ -28,39 +30,33 @@ class TeamCreateRequest extends Request implements TeamCreatePayload
         ]);
     }
 
-    public function rules(): array
+    public function id(): int
     {
-        return [
-            self::NAME => 'required|max:255|unique:'.Team::class.','.self::NAME,
-            self::DESCRIPTION => 'required|string',
-            self::ACTIVE => 'required|bool',
-            self::FLAG => 'required|string',
-            self::COLOR => 'required|string',
-        ];
+        return $this->route(self::ID);
     }
 
     public function name(): string
     {
-        return $this->get(self::NAME);
+        return $this->post(self::NAME);
     }
 
     public function description(): ?string
     {
-        return $this->get(self::DESCRIPTION);
+        return $this->post(self::DESCRIPTION);
     }
 
     public function active(): ?bool
     {
-        return $this->get(self::ACTIVE);
+        return $this->post(self::ACTIVE);
     }
 
     public function flag(): ?string
     {
-        return $this->get(self::FLAG);
+        return $this->post(self::FLAG);
     }
 
-    public function colors(): ?string
+    public function color(): ?string
     {
-        return $this->get(self::COLOR);
+        return $this->post(self::COLOR);
     }
 }

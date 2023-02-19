@@ -4,15 +4,12 @@ namespace Database\Seeders;
 
 use Cmd\Entities\Team;
 use Cmd\Repositories\PersistRepository;
-
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-
 class TeamSeeder extends Seeder
 {
-
-#    use WithoutModelEvents;
+//    use WithoutModelEvents;
 
     public const NUMBER_OF_SEEDERS = 20;
 
@@ -33,7 +30,7 @@ class TeamSeeder extends Seeder
         for ($i = 1; $i <= self::NUMBER_OF_SEEDERS; $i++) {
             /** @var Team $team */
             $team = entity(Team::class)->make([
-                'Name' => 'name'.$i
+                'Name' => 'name'.$i,
             ]);
 
             $this->persistRepository->save($team);

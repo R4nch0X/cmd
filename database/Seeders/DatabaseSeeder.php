@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Development\Seeders\TeamSeeder;
 use Cmd\Entities\Team;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -16,7 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        #$this->call(TeamSeeder::class);
+        //$this->call(TeamSeeder::class);
 
         Team::factory(10)->create();
 
